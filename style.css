@@ -194,4 +194,13 @@ select {
         width: 100%;
         text-align: center;
     }
+    
 }
+
+/* Fundo branco para os três logótipos */
+
+.study-logo,
+.study-logo.logo-dark {
+    background: #ffffff;
+}
+
