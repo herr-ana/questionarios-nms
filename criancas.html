@@ -1,4 +1,171 @@
-<!doctype html><html lang="pt"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Questionários — Crianças e adolescentes</title><link rel="stylesheet" href="style.css"></head><body><main class="card"><a class="back" href="index.html">← Voltar</a><div class="eyebrow">Portal das crianças e adolescentes</div><h1>Os teus questionários</h1><p>Escolhe a tua idade em anos completos para veres os questionários que deves preencher.</p><label for="idade">Idade</label><select id="idade"><option value="">Seleciona a idade</option></select><section id="resultados" aria-live="polite"></section><p class="note">Se precisares de ajuda, pede apoio ao adulto ou investigador responsável. Lê as instruções e o consentimento de cada questionário.</p></main><script>
-const items=[{name:'CASSS Nível 1',min:8,max:11,platform:'Microsoft Forms',url:'https://forms.cloud.microsoft/e/vtvPmZyfM2'},{name:'CASSS Nível 2',min:12,max:17,platform:'Microsoft Forms',url:'https://forms.cloud.microsoft/e/TfiKZe6auR'},{name:'CLINIC-1',min:8,max:11,platform:'Tally',url:'https://tally.so/r/1WW9Vl'},{name:'CLINIC-2',min:12,max:17,platform:'Tally',url:'https://tally.so/r/xVVJJ5'},{name:'SDQ-POR A11-17',min:11,max:17,platform:'Microsoft Forms',url:'https://forms.cloud.microsoft/e/n7xr0utHWA'}];
-const select=document.querySelector('#idade'),out=document.querySelector('#resultados');for(let n=8;n<=17;n++){let opt=document.createElement('option');opt.value=n;opt.textContent=n+' anos';select.appendChild(opt)}select.addEventListener('change',()=>{const n=Number(select.value);out.replaceChildren();if(!select.value)return;const list=items.filter(x=>n>=x.min&&n<=x.max);let heading=document.createElement('h2');heading.textContent='Questionários para '+n+' anos';out.appendChild(heading);let ol=document.createElement('ol');ol.className='forms';for(const x of list){let li=document.createElement('li'),info=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small'),a=document.createElement('a');strong.textContent=x.name;small.textContent=x.platform;info.append(strong,small);a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Abrir ↗';li.append(info,a);ol.appendChild(li)}out.appendChild(ol)});
-</script></body></html>
+
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex,nofollow,noarchive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Questionários — Crianças e adolescentes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="card">
+
+        <a class="back" href="index.html">← Voltar</a>
+
+        <div class="eyebrow">
+            Portal das crianças e adolescentes
+        </div>
+
+        <h1>Os teus questionários</h1>
+
+        <p>
+            Escolhe a tua idade em anos completos para
+            veres os questionários que deves preencher.
+        </p>
+
+        <label for="idade">Idade</label>
+
+        <select id="idade">
+            <option value="">Seleciona a idade</option>
+        </select>
+
+        <section id="resultados" aria-live="polite"></section>
+
+        <p class="note">
+            Se precisares de ajuda, pede apoio ao adulto
+            ou investigador responsável. Lê as instruções
+            e o consentimento de cada questionário.
+        </p>
+
+    </main>
+
+    <script>
+
+        // QUESTIONÁRIOS POR ORDEM DE APRESENTAÇÃO
+
+        const items = [
+
+            // 1. CLINIC — SEMPRE PRIMEIRO
+
+            {
+                name: 'CLINIC-1',
+                min: 8,
+                max: 11,
+                platform: 'Tally',
+                url: 'https://tally.so/r/1WW9Vl'
+            },
+
+            {
+                name: 'CLINIC-2',
+                min: 12,
+                max: 17,
+                platform: 'Tally',
+                url: 'https://tally.so/r/xVVJJ5'
+            },
+
+            // 2. CASSS — SEGUNDO
+
+            {
+                name: 'CASSS Nível 1',
+                min: 8,
+                max: 11,
+                platform: 'Microsoft Forms',
+                url: 'https://forms.cloud.microsoft/e/vtvPmZyfM2'
+            },
+
+            {
+                name: 'CASSS Nível 2',
+                min: 12,
+                max: 17,
+                platform: 'Microsoft Forms',
+                url: 'https://forms.cloud.microsoft/e/TfiKZe6auR'
+            },
+
+            // 3. SDQ — TERCEIRO
+
+            {
+                name: 'SDQ-POR A11-17',
+                min: 11,
+                max: 17,
+                platform: 'Microsoft Forms',
+                url: 'https://forms.cloud.microsoft/e/n7xr0utHWA'
+            }
+
+        ];
+
+        // ELEMENTOS DA PÁGINA
+
+        const select = document.querySelector('#idade');
+        const out = document.querySelector('#resultados');
+
+        // CRIAR OPÇÕES DE IDADE (8 A 17 ANOS)
+
+        for (let n = 8; n <= 17; n++) {
+
+            const opt = document.createElement('option');
+
+            opt.value = n;
+            opt.textContent = n + ' anos';
+
+            select.appendChild(opt);
+        }
+
+        // MOSTRAR QUESTIONÁRIOS CORRESPONDENTES
+
+        select.addEventListener('change', () => {
+
+            const n = Number(select.value);
+
+            out.replaceChildren();
+
+            if (!select.value) return;
+
+            const list = items.filter(
+                x => n >= x.min && n <= x.max
+            );
+
+            const heading = document.createElement('h2');
+
+            heading.textContent =
+                'Questionários para ' + n + ' anos';
+
+            out.appendChild(heading);
+
+            const ol = document.createElement('ol');
+
+            ol.className = 'forms';
+
+            for (const x of list) {
+
+                const li = document.createElement('li');
+                const info = document.createElement('div');
+                const strong = document.createElement('strong');
+                const small = document.createElement('small');
+                const a = document.createElement('a');
+
+                strong.textContent = x.name;
+                small.textContent = x.platform;
+
+                info.append(strong, small);
+
+                a.href = x.url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.textContent = 'Abrir ↗';
+
+                li.append(info, a);
+                ol.appendChild(li);
+            }
+
+            out.appendChild(ol);
+        });
+
+    </script>
+
+</body>
+</html>
