@@ -204,3 +204,62 @@ select {
     background: #ffffff;
 }
 
+
+/* CORREÇÃO DO LAYOUT NMS */
+
+/* Manter todo o conteúdo numa única coluna */
+.card {
+    display: block !important;
+    width: 100%;
+    max-width: 670px;
+    margin: 0 auto;
+}
+
+/* Colocar os três logótipos lado a lado */
+.study-logos {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 28px;
+}
+
+/* Fundo branco para os três logótipos */
+.study-logo,
+.study-logo.logo-dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff !important;
+    min-width: 0;
+    height: 100px;
+    padding: 8px;
+}
+
+/* Ajustar o tamanho das imagens */
+.study-logo img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 85px;
+    object-fit: contain;
+}
+
+/* Evitar que outros elementos fiquem lado a lado */
+.card > h1,
+.card > p,
+.card > .eyebrow,
+.card > .options {
+    width: 100%;
+}
+
+/* Botões dos questionários */
+.options {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin: 28px 0;
+}
+
+
